@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Example</title>
+</head>
+<body>
+    <h1>Canvas API Example</h1>
+    <canvas id="myCanvas" width="400" height="200" style="border:1px solid #000000;"></canvas>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Draw a rectangle
+        ctx.fillStyle = '#FF0000';
+        ctx.fillRect(20, 20, 150, 100);
+        
+        // Draw a circle
+        ctx.beginPath();
+        ctx.arc(240, 100, 40, 0, Math.PI * 2, true);
+        ctx.fillStyle = '#00FF00';
+        ctx.fill();
+    </script>
+</body>
+</html>
