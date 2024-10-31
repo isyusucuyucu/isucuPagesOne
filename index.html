@@ -4,9 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My GitHub Pages Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #cancel-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to My GitHub Pages Site!</h1>
     <p>This is my first page hosted on GitHub Pages.</p>
+    <p>Redirecting...</p>
+    <button id="cancel-button">Cancel Redirect in <span id="countdown">5</span> seconds</button>
+
+    <script>
+        let countdown = 5; // Set countdown time
+        const countdownElement = document.getElementById('countdown');
+        const cancelButton = document.getElementById('cancel-button');
+        
+        // Update the countdown every second
+        const interval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+
+            if (countdown <= 0) {
+                clearInterval(interval);
+                window.location.href = 'second-page.html'; // Redirect after countdown
+            }
+        }, 1000);
+
+        // Add click event to cancel button
+        cancelButton.addEventListener('click', () => {
+            clearInterval(interval); // Stop the countdown
+            alert('Redirect canceled!'); // Optional: alert the user
+            // You can also hide the button or modify its text here
+            cancelButton.disabled = true; // Disable the button after canceling
+            cancelButton.textContent = 'Redirect canceled.';
+        });
+    </script>
 </body>
 </html>
