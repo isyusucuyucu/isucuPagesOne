@@ -21,7 +21,8 @@
     <h1>Welcome to My GitHub Pages Site!</h1>
     <p>This is my first page hosted on GitHub Pages.</p>
     <p>Redirecting...</p>
-    <button id="cancel-button">Cancel Redirect in <span id="countdown">5</span> seconds</button>
+    <button id="cancel-button">Cancel Redirect (<span id="countdown">5</span>)</button>
+    <p><a href="second-page.html">Second page</a>.</p>
 
     <script>
         let countdown = 5; // Set countdown time
@@ -42,7 +43,7 @@
         // Add click event to cancel button
         cancelButton.addEventListener('click', () => {
             clearInterval(interval); // Stop the countdown
-            alert('Redirect canceled!'); // Optional: alert the user
+            //alert('Redirect canceled!'); // Optional: alert the user
             // You can also hide the button or modify its text here
             cancelButton.disabled = true; // Disable the button after canceling
             cancelButton.textContent = 'Redirect canceled.';
