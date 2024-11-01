@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Tree View Example</title>
+    <style>
+        ul {
+            list-style-type: none; /* Remove default list styling */
+            padding-left: 20px; /* Indent child items */
+        }
+        li {
+            cursor: pointer; /* Show pointer cursor for clickable items */
+        }
+        .nested {
+            display: none; /* Hide nested items by default */
+        }
+        .active {
+            display: block; /* Show active items */
+        }
+    </style>
+</head>
+<body>
+    <h1>Tree View Example</h1>
+    <ul>
+        <li onclick="toggle(this)">Root
+            <ul class="nested">
+                <li onclick="toggle(event)">Child 1
+                    <ul class="nested">
+                        <li>Grandchild 1.1</li>
+                        <li>Grandchild 1.2</li>
+                    </ul>
+                </li>
+                <li>Child 2</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        function toggle(event) {
+            event.stopPropagation(); // Prevent the click event from bubbling up
+            const nested = event.target.querySelector('.nested');
+            if (nested) {
+                nested.classList.toggle('active');
+            }
+        }
+    </script>
+</body>
+</html>
