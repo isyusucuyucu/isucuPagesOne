@@ -6,7 +6,15 @@
     <title>Tree View with jsTree</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/themes/default/style.min.css" />
     <style>
-        #jstree { margin-top: 20px; }
+        /* Custom styles to enlarge jsTree items */
+        #jstree .jstree-anchor {
+            font-size: 20px; /* Increase font size */
+            padding: 10px;   /* Increase padding */
+        }
+        
+        #jstree .jstree-node {
+            margin: 5px 0;   /* Add margin between nodes */
+        }
     </style>
 </head>
 <body>
