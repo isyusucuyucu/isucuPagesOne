@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered Content</title>
+    <title>Centered Content with Responsive Behavior</title>
 
     <style>
     body {
@@ -12,7 +12,8 @@
     }
     
     .container {
-        width: 1000px; /* Set fixed width */
+        max-width: 1000px; /* Set maximum width */
+        width: 100%; /* Allow width to adjust to smaller screens */
         margin: 0 auto; /* Center the container */
         background-color: rgba(255, 240, 200, 0.5); /* lightyellow; Highlight color;  #f0f0f0, rgba(255, 0, 0, 0.5) */
         padding: 20px; /* Optional: Add some padding inside the container */
@@ -25,7 +26,7 @@
 <body>
     <div class="container">
         <h1>Your Content Here</h1>
-        <p>This content is centered with a fixed width of 1000 pixels.</p>
+        <p>This content is centered with a max width of 1000 pixels (Responsive Behavior).</p>
     </div>
 </body>
 </html>
