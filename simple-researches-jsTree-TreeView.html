@@ -6,20 +6,43 @@
     <title>Tree View with jsTree</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/themes/default/style.min.css" />
     <style>
-        /* Custom styles to enlarge jsTree items */
+        /* Custom styles to set height for jsTree items */
         #jstree .jstree-anchor {
-            font-size: 20px; /* Increase font size */
-            padding: 10px;   /* Increase padding */
+            font-size: 40px; /* Increase font size */
+            padding: 0px;   /* Increase padding */
+            height: 40px;    /* Set fixed height */
+            line-height: 40px; /* Center text vertically */
         }
         
         #jstree .jstree-node {
-            margin: 5px 0;   /* Add margin between nodes */
+            margin-left: 50px;   /* Add margin between nodes */
         }
+
+        #jstree .jstree-icon {
+            /*display: none;   Hide icons */
+            /*vertical-align: middle;  Align icons to the middle */
+            /*width: 30px;           Set desired width */
+            /*height: 30px;          Set desired height */
+           /* background-size: 30px 30px;  Ensure background image scales */
+        }
+
+        /* Optional: styling for the textarea */
+        #nodeText {
+            width: 900px;
+            font-size: 20px;
+            padding: 10px;
+            margin-top: 10px;
+            overflow: hidden;  /* Hide scrollbar */
+            resize: none;      /* Disable manual resizing */
+        }
+
     </style>
 </head>
 <body>
     <h1>Tree View Example with jsTree</h1>
     <div id="jstree"></div>
+    <textarea id="nodeText" placeholder="Selected node text will appear here" rows="1"></textarea>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
@@ -38,7 +61,33 @@
                     ]
                 }
             });
+
+
+            // Function to adjust the height of the textarea
+            function adjustHeight() {
+                this.style.height = 'auto';  // Reset height to auto
+                this.style.height = (this.scrollHeight) + 'px';  // Set height based on scrollHeight
+            }
+
+            // Listen for node selection
+            $('#jstree').on('select_node.jstree', function (e, data) {
+                // Get the current value of the textarea
+                let currentText = $('#nodeText').val();
+
+                // Concatenate the selected node text to the existing text
+                let newText = currentText + (currentText ? ', ' : '') + data.node.text;
+
+                // Update the textarea and adjust its height
+                $('#nodeText').val(newText);
+                $('#nodeText')[0].dispatchEvent(new Event('input'));  // Trigger input event for adjustment
+            });
+
+            // Initial adjustment
+            $('#nodeText').on('input', adjustHeight);
+
         });
+
+
     </script>
 </body>
 </html>
