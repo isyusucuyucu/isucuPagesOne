@@ -12,7 +12,9 @@
     }
     
     .container {
-        width: 1000px; /* Set fixed width */
+        max-width: 1000px; /* Set maximum width */
+        width: 100%; /* Allow width to adjust to smaller screens */
+
         margin: 0 auto; /* Center the container */
         background-color: lightyellow; /* Highlight color */
         padding: 20px; /* Add some padding */
@@ -45,5 +47,15 @@
             <p>This section takes up 25% of the width.</p>
         </div>
     </div>
+<div style="width: 800px; margin: 0 auto; background-color: lightgreen; padding: 20px;">
+Explanation<br>
+display: flex;: This property makes the .container a flex container, allowing its child elements (the two divs) to be aligned horizontally.<br>
+
+Flex Properties:<br>
+
+.left { flex: 3; }: This means the left section will take up 75% of the space relative to the total flex value (3 parts of 4).<br>
+.right { flex: 1; }: This means the right section will take up 25% of the space (1 part of 4).<br>
+Background Colors: Different background colors are applied to the left and right sections for visual differentiation.<br>
+</div>
 </body>
 </html>
