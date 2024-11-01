@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divided Centered Content</title>
+
+    <style>
+    body {
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+    }
+    
+    .container {
+        width: 1000px; /* Set fixed width */
+        margin: 0 auto; /* Center the container */
+        background-color: lightyellow; /* Highlight color */
+        padding: 20px; /* Add some padding */
+        border-radius: 8px; /* Round corners */
+        display: flex; /* Use flexbox for layout */
+    }
+    
+    .left {
+        flex: 3; /* 75% width */
+        background-color: lightblue; /* Color for left part */
+        padding: 10px; /* Optional padding */
+    }
+    
+    .right {
+        flex: 1; /* 25% width */
+        background-color: lightcoral; /* Color for right part */
+        padding: 10px; /* Optional padding */
+    }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>Left Content (75%)</h1>
+            <p>This section takes up 75% of the width.</p>
+        </div>
+        <div class="right">
+            <h1>Right Content (25%)</h1>
+            <p>This section takes up 25% of the width.</p>
+        </div>
+    </div>
+</body>
+</html>
