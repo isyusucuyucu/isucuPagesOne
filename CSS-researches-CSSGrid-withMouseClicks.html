@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Grid with Clickable Elements</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .outer-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(30, 1fr);
+            gap: 2px;
+            /* width: calc(1000px - 58px); Adjusted to accommodate borders and gaps */
+            margin: 0 auto; /* Ensures the grid is centered */
+        }
+        .grid-item {
+            background-color: white;  /*  #f2f2f2 */
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+        }
+        #display {
+            margin-bottom: 20px;
+            font-size: 16px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<input type="text" id="display" readonly>
+
+<div class="outer-container">
+    <div class="grid-container">
+        <!-- JavaScript will populate this grid -->
+    </div>
+</div>
+
+<script>
+    const gridContainer = document.querySelector('.grid-container');
+    const display = document.getElementById('display');
+
+    for (let y = 0; y < 20; y++) {
+        for (let x = 0; x < 30; x++) {
+            const gridItem = document.createElement('div');
+            gridItem.classList.add('grid-item');
+            gridItem.textContent = `${x},${y}`;
+            gridItem.addEventListener('click', function() {
+                display.value = `Clicked: (${x},${y})`;
+            });
+            gridContainer.appendChild(gridItem);
+        }
+    }
+</script>
+
+</body>
+</html>

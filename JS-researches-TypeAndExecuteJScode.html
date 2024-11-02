@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Executor</title>
+</head>
+<body>
+    <h1>Execute JavaScript Code</h1>
+    <textarea id="js-code" rows="10" cols="50" placeholder="Enter your JavaScript code here"></textarea><br><br>
+    <button id="execute-btn">Execute Code</button>
+    <div id="output"></div>
+
+    <script>
+        document.getElementById('execute-btn').addEventListener('click', function() {
+            const code = document.getElementById('js-code').value;
+            try {
+                const result = eval(code); // Evaluate and execute the code
+                document.getElementById('output').textContent = `Output: ${result}`;
+            } catch (error) {
+                document.getElementById('output').textContent = `Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>
